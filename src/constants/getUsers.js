@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 
 const GET_USERS = gql`
   {
-    search(query: "location:kiev", type: USER, first: 10) {
+    search(query: "location:kyiv", type: USER, first: 10) {
       edges {
         node {
           ... on User {
