@@ -1,26 +1,24 @@
-import './App.css';
-import { useEffect } from 'react';
-import { useQuery } from '@apollo/client';
+import { memo, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import GET_USERS from './constants/getUsers';
 import UsersItem from './components/UsersItem';
 import setUsers from './store/actions/users';
+import Error from './components/Error';
 
-const App = () => {
-  const { data } = useQuery(GET_USERS);
-  const { users } = useSelector((state) => state);
+const App = memo(() => {
+  const { users, error } = useSelector((state) => state);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(setUsers(data && data.search.edges));
-  }, [data]);
+    dispatch(setUsers());
+  }, []);
 
   return (
     <>
+      {error && <Error error={error} />}
       {users &&
         users.map(({ node: user }) => <UsersItem key={user.id} data={user} />)}
     </>
   );
-};
+});
 
 export default App;

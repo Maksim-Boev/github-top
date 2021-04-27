@@ -1,5 +1,6 @@
 const initialState = {
-  users: []
+  users: [],
+  error: null
 };
 
 const users = (state = initialState, action) => {
@@ -8,6 +9,11 @@ const users = (state = initialState, action) => {
       return {
         ...state,
         users: action.payload
+      };
+    case 'ERROR':
+      return {
+        ...state,
+        error: action.payload
       };
     default:
       return state;
