@@ -1,8 +1,9 @@
-import { put, call } from 'redux-saga/effects';
+import { put, call, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
 
-import setUsers from '../store/actions/users';
+import { setUsers } from '../store/actions/users';
 import errorAction from '../store/actions/error';
+import { FETCH_USERS } from '../constants/const';
 
 const getGitHubData = () => {
   return axios.post(
@@ -46,4 +47,8 @@ function* fetchUsersWorker() {
   }
 }
 
-export default fetchUsersWorker;
+function* usersWatcher() {
+  yield takeEvery(FETCH_USERS, fetchUsersWorker);
+}
+
+export default usersWatcher;

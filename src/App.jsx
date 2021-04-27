@@ -1,7 +1,7 @@
 import { memo, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import UsersItem from './components/UsersItem';
-import setUsers from './store/actions/users';
+import { fetchUsers } from './store/actions/users';
 import Error from './components/Error';
 
 const App = memo(() => {
@@ -9,7 +9,7 @@ const App = memo(() => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(setUsers());
+    dispatch(fetchUsers());
   }, []);
 
   return (

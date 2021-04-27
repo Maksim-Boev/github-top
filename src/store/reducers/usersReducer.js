@@ -1,16 +1,18 @@
+import { ERROR, SET_USERS } from '../../constants/const';
+
 const initialState = {
   users: [],
   error: null
 };
 
-const users = (state = initialState, action) => {
+const usersReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'SET_USERS':
+    case SET_USERS:
       return {
         ...state,
         users: action.payload
       };
-    case 'ERROR':
+    case ERROR:
       return {
         ...state,
         error: action.payload
@@ -20,4 +22,4 @@ const users = (state = initialState, action) => {
   }
 };
 
-export default users;
+export default usersReducer;
