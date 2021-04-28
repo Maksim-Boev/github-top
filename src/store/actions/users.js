@@ -1,4 +1,4 @@
-import { FETCH_USERS, SET_USERS } from '../../constants/const';
+import { FETCH_USERS, SET_USERS } from '../../constants';
 
 export const setUsers = (users) => ({
   type: SET_USERS,

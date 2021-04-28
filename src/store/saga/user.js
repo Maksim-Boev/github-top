@@ -1,9 +1,9 @@
 import { put, call, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
 
-import { setUsers } from '../store/actions/users';
-import errorAction from '../store/actions/error';
-import { FETCH_USERS } from '../constants/const';
+import { setUsers } from '../actions/users';
+import errorAction from '../actions/error';
+import { FETCH_USERS } from '../../constants';
 
 const getGitHubData = () => {
   return axios.post(

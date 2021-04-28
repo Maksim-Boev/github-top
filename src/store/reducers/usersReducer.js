@@ -1,21 +1,21 @@
-import { ERROR, SET_USERS } from '../../constants/const';
+import { ERROR, SET_USERS } from '../../constants';
 
 const initialState = {
   users: [],
   error: null
 };
 
-const usersReducer = (state = initialState, action) => {
-  switch (action.type) {
+const usersReducer = (state = initialState, { type, payload }) => {
+  switch (type) {
     case SET_USERS:
       return {
         ...state,
-        users: action.payload
+        users: payload
       };
     case ERROR:
       return {
         ...state,
-        error: action.payload
+        error: payload
       };
     default:
       return state;

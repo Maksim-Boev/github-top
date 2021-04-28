@@ -1,4 +1,4 @@
-import { ERROR } from '../../constants/const';
+import { ERROR } from '../../constants';
 
 const errorAction = (error) => ({
   type: ERROR,
